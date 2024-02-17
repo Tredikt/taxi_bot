@@ -7,17 +7,6 @@ from aiogram.dispatcher.dispatcher import FSMContext
 
 from blanks.bot_markup import menu
 
-from handlers.constructor_callback_handler import constructor_callback_handler
-
-from states_handlers.states import SettingsStates, MenuStates
-from states_handlers.get_promocode_handler import get_promocode_handler
-
-from course_creation_handlers.edit_course_name import edit_course_name
-from course_creation_handlers.edit_course_description import edit_course_description
-from course_creation_handlers.edit_course_image import edit_course_image
-
-from config import channel_id, group_id
-
 
 class MyBot:
     def __init__(self, bot: Bot, dp: Dispatcher, db: DataBase):

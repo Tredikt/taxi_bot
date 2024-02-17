@@ -1,7 +1,7 @@
 from aiogram import Dispatcher, Bot
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
-from courses_constructor import MyBot
+from class_bot import MyBot
 from utils.db_api.database import DataBase
 from config import TOKEN, db_name
 
