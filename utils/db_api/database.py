@@ -39,3 +39,14 @@ class DataBase:
         )
 
         self.conn.commit()
+
+    def get_user(self, tg_id: int):
+        user_info = self.cur.execute(
+            """
+            SELECT username, fullname FROM users
+            WHERE tg_id = ?
+            """,
+            (tg_id,)
+        ).fetchone()
+
+        return user_info if user_info else ()
