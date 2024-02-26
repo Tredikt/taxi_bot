@@ -50,3 +50,4 @@ class DataBase:
         ).fetchone()
 
         return user_info if user_info else ()
+
