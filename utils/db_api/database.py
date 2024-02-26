@@ -17,3 +17,25 @@ class DataBase:
         )
 
         self.conn.commit()
+
+    def get_users(self):
+        users_id = self.cur.execute(
+            """
+            SELECT tg_id FROM users
+            """
+        ).fetchall()
+
+        return [elem[0] for elem in users_id] if users_id else []
+
+    def add_user(self, tg_id: int, username: str, fullname: str):
+        self.cur.execute(
+            """
+            INSERT OR REPLACE INTO users
+            (tg_id, username, fullname)
+            VALUES
+            (?, ?, ?)
+            """,
+            (tg_id, username, fullname)
+        )
+
+        self.conn.commit()
