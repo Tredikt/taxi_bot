@@ -7,6 +7,8 @@ from aiogram.dispatcher.dispatcher import FSMContext
 
 from blanks.bot_markup import menu
 
+from handlers.callback_handler import callback_handler
+
 
 class MyBot:
     def __init__(self, bot: Bot, dp: Dispatcher, db: DataBase):
@@ -25,6 +27,8 @@ class MyBot:
         chat_type = message.chat.type
 
     def register_handlers(self):
+        self.dp.register_callback_query_handler(callback=callback_handler, state="*")
+
         self.dp.register_message_handler(callback=self.start_handler, commands=["start"], state="*")
         self.dp.register_message_handler(callback=self.text_handler, state="*", content_types=["text"])
 
